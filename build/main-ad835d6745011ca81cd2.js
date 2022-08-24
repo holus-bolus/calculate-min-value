@@ -1,0 +1,1 @@
+(()=>{let r="";for(;;){const t=prompt("Enter a number");if(!isNaN(+t)&&""!==r){for(let e=0;e<r.length;e++)if("break"===t||!1===t)return r;r+=+t;for(let e=0;e<r;e++)r=""===r?t:`${r}, ${t}`;Math.min(+r)}}})();
