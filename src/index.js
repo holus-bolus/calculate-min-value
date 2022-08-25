@@ -2,8 +2,6 @@
 окне prompt. Мы должны игнорировать, если пользователь ввел не число, не просчитывать, то есть после некорректного ввода
 снова сразу спрашиваем. Если число, то должны сравнить с прошлым, и оставить минимальное. Когда ввод останавливается,
 мы возвращаем минимальное число из всех введенных.*/
-
-
 /**
  *
  * @param {number} min
@@ -11,26 +9,27 @@
  * @returns {number}
  */
 
-const askUserANumber = () => {
-    let iterationStorage = '';
-    while (true) {
-        const askAQuestion = prompt("Enter a number");
-        if (isNaN(+askAQuestion) || iterationStorage === '') {
+let iterationsStorage = '';
+
+function askNumbers() {
+    const getNumber = prompt("Enter a number");
+    for (let iterator = 0; iterator < iterationsStorage; iterator++) {
+        if (isNaN(+getNumber)) {
+            alert("You entered not a number");
             continue;
         }
-        //Перебираємо промпт на наявність слова break чи false
-        for (let counter = 0; counter < iterationStorage.length; counter++) {
-            if (askAQuestion === "break" || askAQuestion === false) {
-                return iterationStorage;
-            }
+        if (getNumber === "break" || getNumber === false) {
+            return Math.min(iterationsStorage);
+        } else if (getNumber === '') {
+            alert("You didn't enter a value");
+            iterator--;//Повертаємось на одну ітерацію назад
+        } else if (iterator[iterationsStorage] < iterator - 1[iterationsStorage]) {
+            iterationsStorage += iterator - 1[iterationsStorage];//Если число, то должны сравнить с прошлым, и оставить минимальное.
+        } else {
+            iterationsStorage += getNumber + ',';
         }
-        iterationStorage += +askAQuestion;
-        for (let iteration = 0; iteration < iterationStorage; iteration++) {
-            //Якщо iterationstorage дорівнює пустій строці, ми записуємо число. Якщо в iterationsStorage вже є число, ми беремо попереднє число, додаємо кому і додаємо нове число
-            iterationStorage = (iterationStorage === '') ? askAQuestion : `${iterationStorage}, ${askAQuestion}`;
-        }
-        Math.min(+iterationStorage);
     }
 }
 
-askUserANumber();
+askNumbers();
+console.log(iterationsStorage);
