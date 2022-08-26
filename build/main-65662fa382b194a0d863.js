@@ -1,0 +1,1 @@
+!function(){let n=1/0;for(;;){const o=prompt("Enter a number");if("break"===o||null===o)break;isNaN(+o)||(n=Math.min(n,+o))}}(),console.log("");
