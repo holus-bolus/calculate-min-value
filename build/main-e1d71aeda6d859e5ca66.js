@@ -1,1 +1,0 @@
-(()=>{let e="";!function(){const t=prompt("Enter a number");for(let n=0;n<e;n++)if(isNaN(+t))alert("You entered not a number");else{if("break"===t||!1===t)return Math.min(e);""===t?(alert("You didn't enter a value"),n--):n[e]<n-1[e]?e+=n-1[e]:e+=t+","}}(),console.log(e)})();

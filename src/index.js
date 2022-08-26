@@ -11,25 +11,20 @@
 
 let iterationsStorage = '';
 
-function askNumbers() {
-    const getNumber = prompt("Enter a number");
-    for (let iterator = 0; iterator < iterationsStorage; iterator++) {
-        if (isNaN(+getNumber)) {
-            alert("You entered not a number");
+function askMinNumber() {
+    let numberStorage = Infinity;
+    while (true) {
+        const answerANumber = prompt("Enter a number");
+        if (answerANumber === "break" || answerANumber === null) {
+            break;
+        }
+        if (isNaN(+answerANumber)) {
             continue;
         }
-        if (getNumber === "break" || getNumber === false) {
-            return Math.min(iterationsStorage);
-        } else if (getNumber === '') {
-            alert("You didn't enter a value");
-            iterator--;//Повертаємось на одну ітерацію назад
-        } else if (iterator[iterationsStorage] < iterator - 1[iterationsStorage]) {
-            iterationsStorage += iterator - 1[iterationsStorage];//Если число, то должны сравнить с прошлым, и оставить минимальное.
-        } else {
-            iterationsStorage += getNumber + ',';
-        }
+        numberStorage = Math.min(numberStorage, +answerANumber);
     }
+    return numberStorage;
 }
 
-askNumbers();
+askMinNumber();
 console.log(iterationsStorage);
